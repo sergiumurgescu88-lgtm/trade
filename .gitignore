@@ -1,0 +1,10 @@
+**/.env
+**/__pycache__/
+**/*.pyc
+**/*.log
+**/*.bak
+**/*.bak*
+**/history.json
+*.bak*
+**/venv/
+**/.env

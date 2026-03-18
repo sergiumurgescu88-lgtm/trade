@@ -1,0 +1,181 @@
+# PROMPT LOVABLE — NeuroTrade Dashboard
+# Copiaza TOT textul de mai jos si lipeste-l in Lovable ca primul mesaj
+
+---
+
+Build a real-time trading bot dashboard called **NeuroTrade Dashboard** for a Python AI trading bot connected to a Supabase backend.
+
+## Tech Stack
+- React + TypeScript
+- Tailwind CSS
+- Supabase JS client (`@supabase/supabase-js`) for data + realtime subscriptions
+- Recharts for all charts
+- lucide-react for icons
+
+## Supabase Config
+```
+SUPABASE_URL = "https://lgrllhsfgvnngtmlwwug.supabase.co"
+SUPABASE_ANON_KEY = "sb_publishable_KtQkZ2_nx8rR65ypG9ZWSw_AjVWWX-N"
+```
+Store these in `.env` as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+
+## Database Tables (already exist in Supabase)
+
+### `portfolio_snapshot` (single row, id=1)
+```
+id, cycle, equity, cash, buying_power, pnl, pnl_pct,
+safe_mode (bool), spy_change_pct, market_trend,
+open_positions, total_trades, total_pl, updated_at
+```
+
+### `open_positions`
+```
+id, symbol, qty, avg_entry, current_price, market_value,
+unrealized_pl, unrealized_pct, stop_loss, take_profit, updated_at
+```
+
+### `signals`
+```
+id, symbol, action (BUY/SELL/HOLD), confidence (0-100), price,
+rsi, macd, ema_trend, tech_score, reasoning, risk_level,
+executed (bool), block_reason, updated_at
+```
+
+### `trades`
+```
+id, symbol, action, qty, price, value, confidence,
+close_type (SIGNAL/STOP_LOSS/TAKE_PROFIT/TRAILING_STOP),
+pl, order_id, timestamp
+```
+
+### `cycle_logs`
+```
+id, cycle, level (INFO/WARNING/ERROR), message, timestamp
+```
+
+---
+
+## Design Direction
+Dark cyberpunk / terminal aesthetic. Deep navy/black backgrounds, cyan `#00D4F5` as primary accent, green `#00E676` for profits, red `#FF3D57` for losses, yellow `#FFD600` for warnings. Use `font-mono` (Fira Code or JetBrains Mono via Google Fonts) for all numbers and data. Card borders should glow subtly with the accent color. Grid lines as background texture. No rounded corners bigger than 4px — sharp, terminal feel.
+
+---
+
+## Layout — Single Page App, 3 Sections
+
+### SECTION 1 — Top Header Bar (full width)
+```
+[⚡ NEUROTRADE v2]  [LIVE ● cycle #N]  [updated HH:MM:SS]  [safe_mode badge]
+[equity $XXX,XXX]  [cash $XXX]  [P&L +$XXX (+X.XX%)]  [SPY X.XX%]
+```
+- Equity, P&L, SPY change update in realtime
+- P&L positive = green glow, negative = red glow
+- Safe Mode = yellow pulsing badge "⚠ SAFE MODE"
+- Normal = green dot "● LIVE"
+
+### SECTION 2 — Main Grid (3 columns)
+
+**Column 1 — Portfolio (narrow)**
+- Equity large number with sparkline (last 20 cycles from equity history — compute from trades table)
+- Cash available progress bar (cash / equity %)
+- Stats row: Total Trades | Win Rate | Total P&L
+- Open Positions count with max (e.g. "3 / 5")
+
+**Column 2 — Signals Table (wide, center)**
+Table with one row per symbol (AAPL, MSFT, NVDA, TSLA, GOOGL, AMZN, META, AMD):
+```
+SYMBOL | PRICE | ACTION | CONF% | RSI | MACD | EMA | REASONING (truncated) | STATUS
+```
+- ACTION cell: colored badge — green BUY, red SELL, gray HOLD
+- CONF% cell: mini progress bar + number
+- RSI cell: colored by value (< 30 red, 30-50 green, 50-70 yellow, > 70 red)
+- STATUS: "✅ Executed" / "⛔ Blocked: reason" / "—"
+- Rows flash/highlight briefly when updated via realtime
+- Reasoning column: truncated to 60 chars, tooltip on hover for full text
+
+**Column 3 — Open Positions (narrow)**
+For each open position:
+```
+[SYMBOL]  $current_price  qty shares
+Entry: $avg_entry  |  P&L: +$XX (+X.XX%)
+SL: $XX  ████░░  TP: $XX
+```
+- P&L colored green/red
+- Progress bar between SL and TP, showing where current price is
+- "No open positions" empty state
+
+### SECTION 3 — Bottom Tabs
+
+**Tab 1: Trade History**
+Table: Timestamp | Symbol | Action | Qty | Price | Value | Confidence | Close Type | P&L
+- BUY rows: left border green
+- SELL rows: left border red
+- Close Type badge: SIGNAL (blue) / STOP_LOSS (red) / TAKE_PROFIT (green) / TRAILING_STOP (yellow)
+- Last 50 trades, most recent first
+- Running total P&L in footer
+
+**Tab 2: Performance Chart**
+- Line chart: Portfolio equity over time (use trades timestamps as x-axis, compute cumulative equity)
+- If no trades yet, show flat line at starting capital ($100,000)
+- Show buy markers (▲ green) and sell markers (▼ red) on the line
+- Chart uses Recharts with dark theme
+
+**Tab 3: Live Log**
+- Last 100 entries from `cycle_logs` table
+- Auto-scroll to bottom
+- Color by level: INFO=gray, WARNING=yellow, ERROR=red
+- Monospace font, terminal look
+- Each line: `[HH:MM:SS] [CYCLE #N] [LEVEL] message`
+
+---
+
+## Realtime
+Subscribe to ALL 5 tables using Supabase realtime:
+```typescript
+supabase
+  .channel('neurotrade-live')
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'portfolio_snapshot' }, handlePortfolio)
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'open_positions' }, handlePositions)
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'signals' }, handleSignals)
+  .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'trades' }, handleTrade)
+  .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'cycle_logs' }, handleLog)
+  .subscribe()
+```
+
+On initial load, fetch all data from all 5 tables.
+
+---
+
+## Empty State
+When bot is not running (no data or updated_at > 10 minutes ago), show:
+- Gray "● OFFLINE" badge instead of "● LIVE"
+- All number cells show "—"
+- A subtle banner: "Bot offline — date din ultimul ciclu afișate"
+
+---
+
+## Additional Details
+- No authentication needed (public read access)
+- Mobile responsive: on mobile, stack columns vertically, hide Reasoning column in signals table
+- Show a small connection indicator (green dot = Supabase connected, red = error)
+- Numbers with 2 decimal places for prices, 4 for entry/SL/TP
+- Percentage values with 2 decimal places + % sign
+- All timestamps in local timezone
+- Page title: "NeuroTrade Dashboard"
+
+---
+
+## File Structure
+```
+src/
+  lib/supabase.ts       — client init
+  hooks/useNeurotrade.ts — all data fetching + realtime subscriptions
+  components/
+    Header.tsx
+    PortfolioCard.tsx
+    SignalsTable.tsx
+    PositionsPanel.tsx
+    TradeHistory.tsx
+    PerformanceChart.tsx
+    LiveLog.tsx
+  App.tsx
+```

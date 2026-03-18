@@ -1,0 +1,106 @@
+import logging
+import requests
+from config import ALPACA_API_KEY, ALPACA_SECRET_KEY, ALPACA_BASE_URL, ALPACA_DATA_URL
+
+log = logging.getLogger("Alpaca")
+
+HEADERS = {
+    "APCA-API-KEY-ID":     ALPACA_API_KEY,
+    "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY,
+    "Content-Type":        "application/json",
+}
+
+CRYPTO_DATA_URL = "https://data.alpaca.markets/v1beta3/crypto/us"
+
+def get_account():
+    try:
+        r = requests.get(f"{ALPACA_BASE_URL}/account", headers=HEADERS, timeout=10)
+        return r.json() if r.status_code == 200 else {}
+    except Exception as e:
+        log.error(f"get_account: {e}")
+        return {}
+
+def get_positions():
+    try:
+        r = requests.get(f"{ALPACA_BASE_URL}/positions", headers=HEADERS, timeout=10)
+        return r.json() if r.status_code == 200 else []
+    except Exception as e:
+        log.error(f"get_positions: {e}")
+        return []
+
+def is_market_open():
+    try:
+        r = requests.get(f"{ALPACA_BASE_URL}/clock", headers=HEADERS, timeout=5)
+        return r.json().get("is_open", False)
+    except:
+        return False
+
+def get_stock_price(symbol):
+    try:
+        r = requests.get(f"{ALPACA_DATA_URL}/stocks/{symbol}/trades/latest", headers=HEADERS, timeout=8)
+        if r.status_code == 200:
+            return float(r.json()["trade"]["p"])
+    except Exception as e:
+        log.warning(f"Stock price {symbol}: {e}")
+    return None
+
+def get_crypto_price(symbol):
+    try:
+        sym = symbol.replace("/", "%2F")
+        r = requests.get(f"{CRYPTO_DATA_URL}/latest/trades?symbols={sym}", headers=HEADERS, timeout=8)
+        if r.status_code == 200:
+            trades = r.json().get("trades", {})
+            clean = symbol.replace("/", "")
+            if symbol in trades:
+                return float(trades[symbol][0]["p"])
+            if clean in trades:
+                return float(trades[clean][0]["p"])
+    except Exception as e:
+        log.warning(f"Crypto price {symbol}: {e}")
+    return None
+
+def get_price(symbol):
+    if "/" in symbol:
+        return get_crypto_price(symbol)
+    return get_stock_price(symbol)
+
+def place_order(symbol, qty, side):
+    is_crypto = "/" in symbol
+    alpaca_sym = symbol.replace("/", "") if is_crypto else symbol
+    payload = {
+        "symbol":        alpaca_sym,
+        "qty":           str(qty),
+        "side":          side,
+        "type":          "market",
+        "time_in_force": "gtc" if is_crypto else "day",
+    }
+    try:
+        r = requests.post(f"{ALPACA_BASE_URL}/orders", headers=HEADERS, json=payload, timeout=10)
+        if r.status_code in [200, 201]:
+            log.info(f"Order OK: {side.upper()} {qty} {symbol}")
+            return r.json()
+        else:
+            log.error(f"POST /orders -> {r.status_code}: {r.text[:200]}")
+            return {}
+    except Exception as e:
+        log.error(f"place_order {symbol}: {e}")
+        return {}
+
+def get_bars(symbol, timeframe="1Hour", limit=50):
+    try:
+        if "/" in symbol:
+            sym = symbol.replace("/", "%2F")
+            url = f"{CRYPTO_DATA_URL}/bars?symbols={sym}&timeframe={timeframe}&limit={limit}"
+        else:
+            url = f"{ALPACA_DATA_URL}/stocks/{symbol}/bars?timeframe={timeframe}&limit={limit}"
+        r = requests.get(url, headers=HEADERS, timeout=10)
+        if r.status_code == 200:
+            data = r.json()
+            if "/" in symbol:
+                clean = symbol.replace("/", "")
+                bars = data.get("bars", {})
+                return bars.get(symbol, bars.get(clean, []))
+            return data.get("bars", [])
+    except Exception as e:
+        log.warning(f"get_bars {symbol}: {e}")
+    return []

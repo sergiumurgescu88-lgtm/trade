@@ -1,0 +1,94 @@
+==========================================
+  NEUROTRADE — DEPLOY PE VPS
+  srv1386954.hstgr.cloud | 187.77.205.24
+==========================================
+
+PASUL 1: CONECTARE SSH
+──────────────────────
+Deschide Terminal (Windows: PowerShell sau CMD) si ruleaza:
+
+  ssh root@187.77.205.24
+
+Prima oara iti cere sa confirmi fingerprint → scrie "yes"
+Parola = cea setata la crearea VPS-ului in Hostinger
+
+
+PASUL 2: UPLOAD FISIERE BOT PE VPS
+────────────────────────────────────
+Intr-un terminal NOU (nu cel cu SSH), din folderul unde ai ZIP-ul:
+
+  scp -r "C:\Users\sergi\Downloads\neurotrade_v2_SUPABASE\neurotrade_v2" root@187.77.205.24:/tmp/
+
+Alternativ cu WinSCP (GUI):
+  - Host: 187.77.205.24
+  - Username: root
+  - Protocol: SCP sau SFTP
+  - Uploadeaza folderul neurotrade_v2 in /tmp/
+
+
+PASUL 3: DEPLOY AUTOMAT
+─────────────────────────
+In terminalul SSH (conectat la VPS):
+
+  cd /tmp/neurotrade_v2
+  chmod +x deploy_vps.sh
+  bash deploy_vps.sh
+
+Scriptul face automat:
+  ✅ Update Ubuntu
+  ✅ Instaleaza Python 3.12
+  ✅ Creeaza /opt/neurotrade
+  ✅ Instaleaza pachete Python
+  ✅ Testeaza toate conexiunile API
+  ✅ Creeaza serviciu systemd (auto-restart)
+  ✅ Porneste botul
+  ✅ Activeaza auto-start la reboot VPS
+
+
+PASUL 4: VERIFICA
+──────────────────
+Dupa deploy (pe VPS):
+
+  neurotrade logs        # log live, Ctrl+C iesire
+  neurotrade status      # stare serviciu
+
+Sau verifica direct pe Telegram — primesti mesajul de pornire
+
+
+COMENZI UTILE PE VPS
+──────────────────────
+  neurotrade start       # porneste botul
+  neurotrade stop        # opreste botul
+  neurotrade restart     # reporneste (dupa modificari)
+  neurotrade logs        # log live (Ctrl+C iesire)
+  neurotrade logs-n 100  # ultimele 100 linii
+  neurotrade status      # stare serviciu
+
+  # Editare configurare (dupa deploy):
+  nano /opt/neurotrade/config.py
+  neurotrade restart
+
+
+ACTUALIZARE BOT (dupa modificari)
+──────────────────────────────────
+  # De pe Windows - upload fisier modificat:
+  scp "C:\calea\catre\fisier.py" root@187.77.205.24:/opt/neurotrade/
+
+  # Pe VPS - repornire:
+  neurotrade restart
+
+
+MONITORIZARE CONTINUA
+──────────────────────
+Botul ruleaza 24/7 ca serviciu sistem.
+Daca VPS-ul se reporneste (update, crash), botul porneste automat.
+
+Log-urile sunt salvate in:
+  /opt/neurotrade/logs/neurotrade.log
+
+Datele live sunt in Supabase:
+  https://lgrllhsfgvnngtmlwwug.supabase.co
+
+Dashboard Lovable: (URL dupa deploy Lovable)
+
+==========================================

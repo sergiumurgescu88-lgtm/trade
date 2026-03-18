@@ -1,0 +1,3131 @@
+{
+  "positions": {
+    "SOL/USDT": {
+      "qty": 1.779474,
+      "entry_price": 89.31
+    },
+    "BNB/USDT": {
+      "qty": 0.204202,
+      "entry_price": 659.85
+    },
+    "ETH/USDT": {
+      "qty": 0.115035,
+      "entry_price": 2109.71
+    },
+    "BTC/USDT": {
+      "qty": 0.002495,
+      "entry_price": 71541.0
+    },
+    "DOGE/USDT": {
+      "qty": 1625.296669,
+      "entry_price": 0.096624
+    },
+    "ADA/USDT": {
+      "qty": 335.748348,
+      "entry_price": 0.274407
+    },
+    "AVAX/USDT": {
+      "qty": 8.594403,
+      "entry_price": 9.86
+    }
+  },
+  "cash": 974.5194027184965,
+  "trades": [
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773311104",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002281,
+      "price": 70141.0,
+      "ts": "2026-03-12T10:25:04.875359"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773311142",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.556455,
+      "price": 86.37,
+      "ts": "2026-03-12T10:25:42.897042"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773311158",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.298471,
+      "price": 651.0,
+      "ts": "2026-03-12T10:25:58.683095"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773311172",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2437.632324,
+      "price": 0.093527,
+      "ts": "2026-03-12T10:26:12.875968"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773311188",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 912.754886,
+      "price": 0.262333,
+      "ts": "2026-03-12T10:26:28.074772"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773311201",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 15.958911,
+      "price": 9.61,
+      "ts": "2026-03-12T10:26:41.809049"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773312183",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002281,
+      "price": 70398.0,
+      "ts": "2026-03-12T10:43:03.108535"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773312198",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.556455,
+      "price": 86.81,
+      "ts": "2026-03-12T10:43:18.560736"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773312213",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.298471,
+      "price": 652.44,
+      "ts": "2026-03-12T10:43:33.071463"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773312232",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2437.632324,
+      "price": 0.093899,
+      "ts": "2026-03-12T10:43:52.267582"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773312269",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 15.958911,
+      "price": 9.64,
+      "ts": "2026-03-12T10:44:29.114522"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773312293",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.04658,
+      "price": 2070.69,
+      "ts": "2026-03-12T10:44:53.231005"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773313291",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.04658,
+      "price": 2070.66,
+      "ts": "2026-03-12T11:01:31.392699"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773313329",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001895,
+      "price": 70409.0,
+      "ts": "2026-03-12T11:02:09.672381"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773313356",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.415153,
+      "price": 86.73,
+      "ts": "2026-03-12T11:02:36.716010"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773313373",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.259851,
+      "price": 651.82,
+      "ts": "2026-03-12T11:02:53.233630"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773313413",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 20.658472,
+      "price": 9.62,
+      "ts": "2026-03-12T11:03:33.723421"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773314392",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001895,
+      "price": 70490.0,
+      "ts": "2026-03-12T11:19:52.171750"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773314408",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.415153,
+      "price": 86.76,
+      "ts": "2026-03-12T11:20:08.477452"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773314431",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.259851,
+      "price": 651.97,
+      "ts": "2026-03-12T11:20:31.066375"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773314453",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 912.754886,
+      "price": 0.262785,
+      "ts": "2026-03-12T11:20:53.996518"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773314472",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 20.658472,
+      "price": 9.59,
+      "ts": "2026-03-12T11:21:12.268368"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773314497",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.044054,
+      "price": 2069.84,
+      "ts": "2026-03-12T11:21:37.582778"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773314522",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1332.740848,
+      "price": 0.094421,
+      "ts": "2026-03-12T11:22:02.214202"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773315491",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.044054,
+      "price": 2072.84,
+      "ts": "2026-03-12T11:38:11.737237"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773315506",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1332.740848,
+      "price": 0.094547,
+      "ts": "2026-03-12T11:38:26.795315"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773315522",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.003037,
+      "price": 70579.0,
+      "ts": "2026-03-12T11:38:42.318537"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773315538",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.172271,
+      "price": 86.85,
+      "ts": "2026-03-12T11:38:58.208373"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773315553",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.339072,
+      "price": 652.85,
+      "ts": "2026-03-12T11:39:13.539887"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773315568",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 709.264203,
+      "price": 0.262166,
+      "ts": "2026-03-12T11:39:28.054328"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773315583",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 12.215362,
+      "price": 9.59,
+      "ts": "2026-03-12T11:39:43.428997"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773316569",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.003037,
+      "price": 70498.0,
+      "ts": "2026-03-12T11:56:09.381204"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773316587",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.172271,
+      "price": 86.89,
+      "ts": "2026-03-12T11:56:27.219455"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773316656",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.041746,
+      "price": 2062.72,
+      "ts": "2026-03-12T11:57:36.680976"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773316672",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1673.139435,
+      "price": 0.094643,
+      "ts": "2026-03-12T11:57:52.752887"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773317616",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.041746,
+      "price": 2058.95,
+      "ts": "2026-03-12T12:13:36.119494"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773317638",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.339072,
+      "price": 652.21,
+      "ts": "2026-03-12T12:13:58.319035"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773317666",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1673.139435,
+      "price": 0.094962,
+      "ts": "2026-03-12T12:14:26.326198"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773317706",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 12.215362,
+      "price": 9.56,
+      "ts": "2026-03-12T12:15:06.662113"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773317723",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002107,
+      "price": 70338.0,
+      "ts": "2026-03-12T12:15:23.482128"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773317748",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.50097,
+      "price": 86.87,
+      "ts": "2026-03-12T12:15:48.654317"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773318707",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002107,
+      "price": 70436.0,
+      "ts": "2026-03-12T12:31:47.332939"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773318725",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.50097,
+      "price": 87.24,
+      "ts": "2026-03-12T12:32:05.669983"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773318756",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.149226,
+      "price": 2062.57,
+      "ts": "2026-03-12T12:32:36.723792"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773318772",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.301202,
+      "price": 654.0,
+      "ts": "2026-03-12T12:32:52.303403"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773318788",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1298.195586,
+      "price": 0.095595,
+      "ts": "2026-03-12T12:33:08.772818"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773318805",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 15.183717,
+      "price": 9.59,
+      "ts": "2026-03-12T12:33:25.921649"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773319782",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1298.195586,
+      "price": 0.095473,
+      "ts": "2026-03-12T12:49:42.256811"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773319825",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 15.183717,
+      "price": 9.61,
+      "ts": "2026-03-12T12:50:25.768201"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773319846",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001184,
+      "price": 70593.0,
+      "ts": "2026-03-12T12:50:46.063734"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773319864",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.321194,
+      "price": 87.22,
+      "ts": "2026-03-12T12:51:04.629298"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773320852",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.321194,
+      "price": 87.37,
+      "ts": "2026-03-12T13:07:32.611983"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773320880",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.301202,
+      "price": 655.82,
+      "ts": "2026-03-12T13:08:00.228055"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773320910",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1875.304787,
+      "price": 0.095119,
+      "ts": "2026-03-12T13:08:30.254920"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773320927",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 15.591756,
+      "price": 9.61,
+      "ts": "2026-03-12T13:08:47.811687"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773321938",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 15.591756,
+      "price": 9.56,
+      "ts": "2026-03-12T13:25:38.274163"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773321954",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.517925,
+      "price": 86.93,
+      "ts": "2026-03-12T13:25:54.752398"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773321970",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.177884,
+      "price": 652.78,
+      "ts": "2026-03-12T13:26:10.367186"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773322762",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.177884,
+      "price": 654.06,
+      "ts": "2026-03-12T13:39:22.819771"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773322811",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 12.520479,
+      "price": 9.6,
+      "ts": "2026-03-12T13:40:11.476997"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773323604",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001184,
+      "price": 70055.0,
+      "ts": "2026-03-12T13:53:24.680992"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773323701",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 12.520479,
+      "price": 9.57,
+      "ts": "2026-03-12T13:55:01.693405"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773323717",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.183287,
+      "price": 652.58,
+      "ts": "2026-03-12T13:55:17.493270"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773324615",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.149226,
+      "price": 2076.03,
+      "ts": "2026-03-12T14:10:15.606054"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773324630",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.517925,
+      "price": 87.07,
+      "ts": "2026-03-12T14:10:30.475480"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773324652",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.183287,
+      "price": 654.14,
+      "ts": "2026-03-12T14:10:52.399445"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773324698",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 709.264203,
+      "price": 0.262402,
+      "ts": "2026-03-12T14:11:38.808201"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773324708",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.003076,
+      "price": 70304.0,
+      "ts": "2026-03-12T14:11:48.670421"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773324718",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002802,
+      "price": 70304.0,
+      "ts": "2026-03-12T14:11:58.705604"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773324731",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.214162,
+      "price": 9.58,
+      "ts": "2026-03-12T14:12:11.392063"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773324735",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.083449,
+      "price": 2079.63,
+      "ts": "2026-03-12T14:12:15.241102"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773324749",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.919396,
+      "price": 87.11,
+      "ts": "2026-03-12T14:12:29.265404"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773324763",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.248707,
+      "price": 654.34,
+      "ts": "2026-03-12T14:12:43.715720"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773324780",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 10.702027,
+      "price": 9.59,
+      "ts": "2026-03-12T14:13:00.199698"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773325902",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.083449,
+      "price": 2059.54,
+      "ts": "2026-03-12T14:31:42.171097"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773325938",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.248707,
+      "price": 650.07,
+      "ts": "2026-03-12T14:32:18.634533"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773325956",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1875.304787,
+      "price": 0.09461,
+      "ts": "2026-03-12T14:32:36.882505"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773325972",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 17.916189,
+      "price": 9.53,
+      "ts": "2026-03-12T14:32:52.821029"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773326024",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.04815,
+      "price": 2053.96,
+      "ts": "2026-03-12T14:33:44.427399"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773326629",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.0058779999999999995,
+      "price": 69443.0,
+      "ts": "2026-03-12T14:43:49.276848"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773326656",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.04815,
+      "price": 2040.42,
+      "ts": "2026-03-12T14:44:16.601795"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773326676",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.305453,
+      "price": 646.96,
+      "ts": "2026-03-12T14:44:36.505236"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773326686",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.22909,
+      "price": 646.96,
+      "ts": "2026-03-12T14:44:46.452181"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773326691",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1770.281712,
+      "price": 0.093769,
+      "ts": "2026-03-12T14:44:51.520265"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773326700",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1854.580457,
+      "price": 0.093769,
+      "ts": "2026-03-12T14:45:00.460681"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773326706",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 403.905692,
+      "price": 0.258918,
+      "ts": "2026-03-12T14:45:06.440842"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773326728",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 6.471803,
+      "price": 9.47,
+      "ts": "2026-03-12T14:45:28.349274"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773326757",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 11.568992,
+      "price": 9.47,
+      "ts": "2026-03-12T14:45:57.897692"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773327371",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.534543,
+      "price": 646.71,
+      "ts": "2026-03-12T14:56:11.447421"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773327392",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 403.905692,
+      "price": 0.259518,
+      "ts": "2026-03-12T14:56:32.668920"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773327407",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 18.040795,
+      "price": 9.48,
+      "ts": "2026-03-12T14:56:47.646121"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773327424",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001348,
+      "price": 69484.0,
+      "ts": "2026-03-12T14:57:04.674152"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773327439",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001797,
+      "price": 69484.0,
+      "ts": "2026-03-12T14:57:19.848982"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773327447",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.026895,
+      "price": 2042.33,
+      "ts": "2026-03-12T14:57:27.063327"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773327457",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.038516,
+      "price": 2042.33,
+      "ts": "2026-03-12T14:57:37.032677"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773328236",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.065411,
+      "price": 2047.63,
+      "ts": "2026-03-12T15:10:36.029962"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773328251",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.0031450000000000002,
+      "price": 69698.0,
+      "ts": "2026-03-12T15:10:51.241032"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773328291",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.259459,
+      "price": 647.38,
+      "ts": "2026-03-12T15:11:31.003950"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773328300",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 3624.862169,
+      "price": 0.093895,
+      "ts": "2026-03-12T15:11:40.203714"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773328308",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 271.131704,
+      "price": 0.260194,
+      "ts": "2026-03-12T15:11:48.759575"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773328319",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.092637,
+      "price": 2044.53,
+      "ts": "2026-03-12T15:11:59.119120"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773328331",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 6.824721,
+      "price": 9.51,
+      "ts": "2026-03-12T15:12:11.901102"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773328333",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.245843,
+      "price": 647.14,
+      "ts": "2026-03-12T15:12:13.186404"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773328348",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 513.615324,
+      "price": 0.260152,
+      "ts": "2026-03-12T15:12:28.470820"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773328368",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 5.902065,
+      "price": 9.51,
+      "ts": "2026-03-12T15:12:48.455830"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773329322",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.092637,
+      "price": 2065.03,
+      "ts": "2026-03-12T15:28:42.458056"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773329375",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.505302,
+      "price": 651.55,
+      "ts": "2026-03-12T15:29:35.322765"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773329375",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 784.747028,
+      "price": 0.261257,
+      "ts": "2026-03-12T15:29:35.639614"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773329390",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 12.726786,
+      "price": 9.56,
+      "ts": "2026-03-12T15:29:50.836157"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773329405",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002051,
+      "price": 70340.0,
+      "ts": "2026-03-12T15:30:05.731031"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773329415",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002486,
+      "price": 70340.0,
+      "ts": "2026-03-12T15:30:15.988340"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773329421",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1286.365427,
+      "price": 0.0943,
+      "ts": "2026-03-12T15:30:21.004710"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773329435",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.053279,
+      "price": 2068.73,
+      "ts": "2026-03-12T15:30:35.492847"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773329448",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1370.780681,
+      "price": 0.0943,
+      "ts": "2026-03-12T15:30:48.221793"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773330191",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.004536999999999999,
+      "price": 70383.0,
+      "ts": "2026-03-12T15:43:11.499108"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773330215",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.053279,
+      "price": 2074.41,
+      "ts": "2026-03-12T15:43:35.562313"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773330248",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.919396,
+      "price": 86.54,
+      "ts": "2026-03-12T15:44:08.121560"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773330264",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.196589,
+      "price": 652.49,
+      "ts": "2026-03-12T15:44:24.988726"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773330285",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.262118,
+      "price": 652.49,
+      "ts": "2026-03-12T15:44:45.005114"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773330287",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 287.111026,
+      "price": 0.262104,
+      "ts": "2026-03-12T15:44:47.060755"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773330300",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 548.121257,
+      "price": 0.262104,
+      "ts": "2026-03-12T15:45:00.063798"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773330305",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.211741,
+      "price": 9.6,
+      "ts": "2026-03-12T15:45:05.994479"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773330916",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 835.232283,
+      "price": 0.262218,
+      "ts": "2026-03-12T15:55:16.720452"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773330930",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.211741,
+      "price": 9.59,
+      "ts": "2026-03-12T15:55:30.892187"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773330945",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002646,
+      "price": 70332.0,
+      "ts": "2026-03-12T15:55:45.723375"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773330954",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001985,
+      "price": 70332.0,
+      "ts": "2026-03-12T15:55:54.380469"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773330972",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.059326,
+      "price": 2071.85,
+      "ts": "2026-03-12T15:56:12.600552"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773330981",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.252938,
+      "price": 86.8,
+      "ts": "2026-03-12T15:56:21.373554"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773330985",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.661522,
+      "price": 86.8,
+      "ts": "2026-03-12T15:56:25.295010"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773332179",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.059326,
+      "price": 2063.42,
+      "ts": "2026-03-12T16:16:19.710540"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773332180",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.004631,
+      "price": 70086.0,
+      "ts": "2026-03-12T16:16:20.317359"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773333019",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2657.146108,
+      "price": 0.094138,
+      "ts": "2026-03-12T16:30:19.767649"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773333035",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002534,
+      "price": 70133.0,
+      "ts": "2026-03-12T16:30:35.838458"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773333060",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.036148,
+      "price": 2064.91,
+      "ts": "2026-03-12T16:31:00.583641"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773333075",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 523.773519,
+      "price": 0.262213,
+      "ts": "2026-03-12T16:31:15.948800"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773333833",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002534,
+      "price": 70402.0,
+      "ts": "2026-03-12T16:43:53.597609"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773333895",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.45870700000000003,
+      "price": 651.84,
+      "ts": "2026-03-12T16:44:55.697922"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773333935",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2052.810969,
+      "price": 0.094614,
+      "ts": "2026-03-12T16:45:35.170412"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773333953",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 9.70164,
+      "price": 9.61,
+      "ts": "2026-03-12T16:45:53.822898"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773334490",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.036148,
+      "price": 2069.76,
+      "ts": "2026-03-12T16:54:50.876072"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773334538",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 523.773519,
+      "price": 0.263056,
+      "ts": "2026-03-12T16:55:38.047737"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773334552",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 9.70164,
+      "price": 9.6,
+      "ts": "2026-03-12T16:55:52.339645"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773334568",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.003296,
+      "price": 70452.0,
+      "ts": "2026-03-12T16:56:08.176744"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773334581",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.171028,
+      "price": 651.76,
+      "ts": "2026-03-12T16:56:21.860006"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773335379",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.003296,
+      "price": 70492.0,
+      "ts": "2026-03-12T17:09:39.160947"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773335422",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.171028,
+      "price": 651.36,
+      "ts": "2026-03-12T17:10:22.415535"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773335448",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2052.810969,
+      "price": 0.09469,
+      "ts": "2026-03-12T17:10:48.595734"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773335466",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.065102,
+      "price": 2070.32,
+      "ts": "2026-03-12T17:11:06.457396"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773335516",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.245202,
+      "price": 9.59,
+      "ts": "2026-03-12T17:11:56.349194"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773336286",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.065102,
+      "price": 2068.17,
+      "ts": "2026-03-12T17:24:46.315070"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773336317",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.245202,
+      "price": 9.59,
+      "ts": "2026-03-12T17:25:17.028532"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773336336",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.003288,
+      "price": 70441.0,
+      "ts": "2026-03-12T17:25:36.016759"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773336350",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.22401,
+      "price": 651.31,
+      "ts": "2026-03-12T17:25:50.436595"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773336364",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1811.492329,
+      "price": 0.094502,
+      "ts": "2026-03-12T17:26:04.649333"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773336379",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 410.532985,
+      "price": 0.262706,
+      "ts": "2026-03-12T17:26:19.949956"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773337230",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.22401,
+      "price": 651.98,
+      "ts": "2026-03-12T17:40:30.086343"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773337249",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1811.492329,
+      "price": 0.094539,
+      "ts": "2026-03-12T17:40:49.318318"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773337266",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 410.532985,
+      "price": 0.262656,
+      "ts": "2026-03-12T17:41:06.763535"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773337295",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.058362,
+      "price": 2066.66,
+      "ts": "2026-03-12T17:41:35.106132"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773338168",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.241263,
+      "price": 651.14,
+      "ts": "2026-03-12T17:56:08.042603"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773338191",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 974.339722,
+      "price": 0.09459,
+      "ts": "2026-03-12T17:56:31.920237"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773338212",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 484.31556,
+      "price": 0.262533,
+      "ts": "2026-03-12T17:56:52.232851"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773338228",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.796761,
+      "price": 9.57,
+      "ts": "2026-03-12T17:57:08.597553"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773338991",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.003288,
+      "price": 70207.0,
+      "ts": "2026-03-12T18:09:51.895106"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773339026",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.058362,
+      "price": 2057.93,
+      "ts": "2026-03-12T18:10:26.727037"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773339130",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.796761,
+      "price": 9.56,
+      "ts": "2026-03-12T18:12:10.105741"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773339985",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002934,
+      "price": 69999.0,
+      "ts": "2026-03-12T18:26:25.227843"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773340002",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.063088,
+      "price": 2052.08,
+      "ts": "2026-03-12T18:26:42.227562"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773340023",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.939977,
+      "price": 9.56,
+      "ts": "2026-03-12T18:27:03.629029"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773340806",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.063088,
+      "price": 2058.29,
+      "ts": "2026-03-12T18:40:06.304725"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773340885",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 484.31556,
+      "price": 0.261861,
+      "ts": "2026-03-12T18:41:25.009723"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773340903",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.939977,
+      "price": 9.58,
+      "ts": "2026-03-12T18:41:43.644968"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773341684",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002934,
+      "price": 69887.0,
+      "ts": "2026-03-12T18:54:44.497683"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773341724",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.241263,
+      "price": 648.82,
+      "ts": "2026-03-12T18:55:24.761624"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773341759",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.093993,
+      "price": 2052.21,
+      "ts": "2026-03-12T18:55:59.234604"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773341773",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 465.148587,
+      "price": 0.261257,
+      "ts": "2026-03-12T18:56:13.124130"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773341792",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.457498,
+      "price": 9.56,
+      "ts": "2026-03-12T18:56:32.636182"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773342630",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 465.148587,
+      "price": 0.260942,
+      "ts": "2026-03-12T19:10:30.678766"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773342647",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.457498,
+      "price": 9.55,
+      "ts": "2026-03-12T19:10:47.285911"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773342662",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002705,
+      "price": 69899.0,
+      "ts": "2026-03-12T19:11:02.898222"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773342677",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.245171,
+      "price": 647.65,
+      "ts": "2026-03-12T19:11:17.396713"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773343422",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002705,
+      "price": 70079.0,
+      "ts": "2026-03-12T19:23:42.163747"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773343510",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 627.379128,
+      "price": 0.261817,
+      "ts": "2026-03-12T19:25:10.027917"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773343535",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.19837,
+      "price": 9.59,
+      "ts": "2026-03-12T19:25:35.125184"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773344291",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.093993,
+      "price": 2065.93,
+      "ts": "2026-03-12T19:38:11.558548"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773344328",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.245171,
+      "price": 650.65,
+      "ts": "2026-03-12T19:38:48.765833"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773344360",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 627.379128,
+      "price": 0.26271,
+      "ts": "2026-03-12T19:39:20.801703"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773344377",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.19837,
+      "price": 9.61,
+      "ts": "2026-03-12T19:39:37.797680"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773344392",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002236,
+      "price": 70291.0,
+      "ts": "2026-03-12T19:39:52.322501"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773345178",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 974.339722,
+      "price": 0.094369,
+      "ts": "2026-03-12T19:52:58.752371"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773345194",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.136435,
+      "price": 2071.31,
+      "ts": "2026-03-12T19:53:14.566850"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773345210",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.277701,
+      "price": 651.29,
+      "ts": "2026-03-12T19:53:30.411579"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773345232",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 289.226385,
+      "price": 0.262641,
+      "ts": "2026-03-12T19:53:52.089899"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773345255",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.272184,
+      "price": 9.61,
+      "ts": "2026-03-12T19:54:15.913752"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773346129",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.272184,
+      "price": 9.61,
+      "ts": "2026-03-12T20:08:49.850668"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773346142",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1516.415506,
+      "price": 0.0945,
+      "ts": "2026-03-12T20:09:02.394646"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773346914",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.136435,
+      "price": 2066.06,
+      "ts": "2026-03-12T20:21:54.130563"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773346935",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 3.91446,
+      "price": 86.62,
+      "ts": "2026-03-12T20:22:15.692287"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773346953",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.277701,
+      "price": 649.91,
+      "ts": "2026-03-12T20:22:33.481004"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773346990",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 289.226385,
+      "price": 0.262362,
+      "ts": "2026-03-12T20:23:10.008278"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773347010",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 6.851811,
+      "price": 9.6,
+      "ts": "2026-03-12T20:23:30.364546"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773347802",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002236,
+      "price": 70235.0,
+      "ts": "2026-03-12T20:36:42.355584"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773347823",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1516.415506,
+      "price": 0.094188,
+      "ts": "2026-03-12T20:37:03.113884"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773347841",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 6.851811,
+      "price": 9.6,
+      "ts": "2026-03-12T20:37:21.800557"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773347858",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.126662,
+      "price": 2063.77,
+      "ts": "2026-03-12T20:37:38.126361"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773347872",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.534943,
+      "price": 86.62,
+      "ts": "2026-03-12T20:37:52.347462"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773347889",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.212965,
+      "price": 649.56,
+      "ts": "2026-03-12T20:38:09.789735"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773347904",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 619.583762,
+      "price": 0.261905,
+      "ts": "2026-03-12T20:38:24.185206"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773348661",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.126662,
+      "price": 2064.44,
+      "ts": "2026-03-12T20:51:01.223798"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773348736",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002774,
+      "price": 70233.0,
+      "ts": "2026-03-12T20:52:16.091450"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773348750",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2170.240371,
+      "price": 0.094275,
+      "ts": "2026-03-12T20:52:30.638812"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773348776",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 6.812884,
+      "price": 9.61,
+      "ts": "2026-03-12T20:52:56.982536"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773349584",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002774,
+      "price": 70300.0,
+      "ts": "2026-03-12T21:06:24.410343"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773349624",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.212965,
+      "price": 650.52,
+      "ts": "2026-03-12T21:07:04.438738"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773349677",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 6.812884,
+      "price": 9.62,
+      "ts": "2026-03-12T21:07:57.406706"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773349696",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.039314,
+      "price": 2064.24,
+      "ts": "2026-03-12T21:08:16.092238"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773350450",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.039314,
+      "price": 2064.72,
+      "ts": "2026-03-12T21:20:50.534698"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773350514",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002273,
+      "price": 70333.0,
+      "ts": "2026-03-12T21:21:54.512331"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773350528",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.288168,
+      "price": 651.0,
+      "ts": "2026-03-12T21:22:08.798290"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773351379",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 619.583762,
+      "price": 0.262136,
+      "ts": "2026-03-12T21:36:19.373301"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773351397",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.062142,
+      "price": 2058.61,
+      "ts": "2026-03-12T21:36:37.480858"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773351418",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.801501,
+      "price": 9.62,
+      "ts": "2026-03-12T21:36:58.484688"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773352211",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.062142,
+      "price": 2060.36,
+      "ts": "2026-03-12T21:50:11.537366"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773352255",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.288168,
+      "price": 651.47,
+      "ts": "2026-03-12T21:50:55.041883"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773352298",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.801501,
+      "price": 9.64,
+      "ts": "2026-03-12T21:51:38.727103"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773352313",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 468.136212,
+      "price": 0.262871,
+      "ts": "2026-03-12T21:51:53.864299"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773353163",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2170.240371,
+      "price": 0.094614,
+      "ts": "2026-03-12T22:06:03.101192"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773353198",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.10022,
+      "price": 2064.91,
+      "ts": "2026-03-12T22:06:38.786365"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773353213",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.266805,
+      "price": 651.53,
+      "ts": "2026-03-12T22:06:53.470009"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773353234",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.56585,
+      "price": 9.65,
+      "ts": "2026-03-12T22:07:14.970314"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773353983",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002273,
+      "price": 70144.0,
+      "ts": "2026-03-12T22:19:43.297824"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773354047",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.266805,
+      "price": 651.36,
+      "ts": "2026-03-12T22:20:47.241126"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773354064",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 468.136212,
+      "price": 0.263117,
+      "ts": "2026-03-12T22:21:04.687305"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773354081",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.56585,
+      "price": 9.67,
+      "ts": "2026-03-12T22:21:21.689559"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773354094",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2205.692702,
+      "price": 0.094751,
+      "ts": "2026-03-12T22:21:34.408606"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773354869",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.534943,
+      "price": 86.28,
+      "ts": "2026-03-12T22:34:29.002389"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773354889",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2205.692702,
+      "price": 0.094578,
+      "ts": "2026-03-12T22:34:49.237442"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773354907",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002335,
+      "price": 70190.0,
+      "ts": "2026-03-12T22:35:07.458337"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773354921",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.295129,
+      "price": 651.45,
+      "ts": "2026-03-12T22:35:21.502754"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773354948",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 191.977769,
+      "price": 0.262894,
+      "ts": "2026-03-12T22:35:48.684558"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773355728",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002335,
+      "price": 70098.0,
+      "ts": "2026-03-12T22:48:48.119266"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773355750",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.10022,
+      "price": 2059.73,
+      "ts": "2026-03-12T22:49:10.603132"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773355788",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 191.977769,
+      "price": 0.262974,
+      "ts": "2026-03-12T22:49:48.222488"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773355803",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.573339,
+      "price": 86.19,
+      "ts": "2026-03-12T22:50:03.745243"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773355817",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1971.521178,
+      "price": 0.094491,
+      "ts": "2026-03-12T22:50:17.638258"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773355838",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.108775,
+      "price": 9.65,
+      "ts": "2026-03-12T22:50:38.586688"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773356641",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.108775,
+      "price": 9.65,
+      "ts": "2026-03-12T23:04:01.256473"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773356656",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002256,
+      "price": 70231.0,
+      "ts": "2026-03-12T23:04:16.236968"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773356676",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.067404,
+      "price": 2068.81,
+      "ts": "2026-03-12T23:04:36.268210"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773356694",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 310.727504,
+      "price": 0.263338,
+      "ts": "2026-03-12T23:04:54.589863"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773357470",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002256,
+      "price": 70481.0,
+      "ts": "2026-03-12T23:17:50.871614"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773357488",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.067404,
+      "price": 2081.09,
+      "ts": "2026-03-12T23:18:08.278725"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773357555",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 310.727504,
+      "price": 0.264761,
+      "ts": "2026-03-12T23:19:15.440602"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773358309",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.573339,
+      "price": 86.94,
+      "ts": "2026-03-12T23:31:49.314972"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773358356",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002383,
+      "price": 70520.0,
+      "ts": "2026-03-12T23:32:36.877880"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773358384",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.071066,
+      "price": 2081.19,
+      "ts": "2026-03-12T23:33:04.290977"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773358406",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 329.014181,
+      "price": 0.263724,
+      "ts": "2026-03-12T23:33:26.956533"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773358430",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 5.154147,
+      "price": 9.67,
+      "ts": "2026-03-12T23:33:50.888281"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773359215",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.071066,
+      "price": 2081.96,
+      "ts": "2026-03-12T23:46:55.212684"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773359239",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.295129,
+      "price": 652.98,
+      "ts": "2026-03-12T23:47:19.925392"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773359256",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1971.521178,
+      "price": 0.094796,
+      "ts": "2026-03-12T23:47:36.738352"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773359272",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 329.014181,
+      "price": 0.263579,
+      "ts": "2026-03-12T23:47:52.515242"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773359287",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 5.154147,
+      "price": 9.68,
+      "ts": "2026-03-12T23:48:07.273440"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773359301",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.616734,
+      "price": 86.96,
+      "ts": "2026-03-12T23:48:21.784641"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773360133",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002383,
+      "price": 70443.0,
+      "ts": "2026-03-13T00:02:13.165173"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773360165",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.065452,
+      "price": 2072.14,
+      "ts": "2026-03-13T00:02:45.865196"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773360181",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.287363,
+      "price": 651.31,
+      "ts": "2026-03-13T00:03:01.432103"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773360195",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2897.455266,
+      "price": 0.09474,
+      "ts": "2026-03-13T00:03:15.380778"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773360212",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 333.690058,
+      "price": 0.263243,
+      "ts": "2026-03-13T00:03:32.066358"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773360228",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.357213,
+      "price": 9.67,
+      "ts": "2026-03-13T00:03:48.599622"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773361072",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.065452,
+      "price": 2103.53,
+      "ts": "2026-03-13T00:17:52.384254"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773361114",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.287363,
+      "price": 659.03,
+      "ts": "2026-03-13T00:18:34.615321"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773361166",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.357213,
+      "price": 9.73,
+      "ts": "2026-03-13T00:19:26.559601"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773361187",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001229,
+      "price": 71409.0,
+      "ts": "2026-03-13T00:19:47.685357"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773362012",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001229,
+      "price": 71892.0,
+      "ts": "2026-03-13T00:33:32.833437"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773362063",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 333.690058,
+      "price": 0.270647,
+      "ts": "2026-03-13T00:34:23.293183"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773362083",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.052876,
+      "price": 2145.16,
+      "ts": "2026-03-13T00:34:43.286588"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773362098",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.23639,
+      "price": 662.17,
+      "ts": "2026-03-13T00:34:58.393441"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773362858",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.052876,
+      "price": 2125.1,
+      "ts": "2026-03-13T00:47:38.341268"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773362982",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 10.784994,
+      "price": 9.84,
+      "ts": "2026-03-13T00:49:42.605985"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773363732",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 10.784994,
+      "price": 9.82,
+      "ts": "2026-03-13T01:02:12.695660"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773363772",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.075354,
+      "price": 2122.47,
+      "ts": "2026-03-13T01:02:52.245074"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773364700",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.075354,
+      "price": 2127.24,
+      "ts": "2026-03-13T01:18:20.929177"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773364746",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.23639,
+      "price": 660.64,
+      "ts": "2026-03-13T01:19:06.863778"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773364782",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001427,
+      "price": 71671.0,
+      "ts": "2026-03-13T01:19:42.157746"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773364801",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 347.688173,
+      "price": 0.270701,
+      "ts": "2026-03-13T01:20:01.010553"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773365562",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001427,
+      "price": 71527.0,
+      "ts": "2026-03-13T01:32:42.993125"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773365641",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.105416,
+      "price": 2123.15,
+      "ts": "2026-03-13T01:34:01.561816"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773365657",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.285023,
+      "price": 659.61,
+      "ts": "2026-03-13T01:34:17.954075"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773365675",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.983995,
+      "price": 9.89,
+      "ts": "2026-03-13T01:34:35.426586"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773366504",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.105416,
+      "price": 2126.75,
+      "ts": "2026-03-13T01:48:24.170945"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773366546",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.285023,
+      "price": 661.5,
+      "ts": "2026-03-13T01:49:06.250595"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773366600",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.983995,
+      "price": 9.92,
+      "ts": "2026-03-13T01:50:00.948498"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773366615",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001693,
+      "price": 71602.0,
+      "ts": "2026-03-13T01:50:15.083393"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773367419",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 347.688173,
+      "price": 0.271697,
+      "ts": "2026-03-13T02:03:39.832582"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773367448",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.052043,
+      "price": 2122.63,
+      "ts": "2026-03-13T02:04:08.367359"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773367462",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.230454,
+      "price": 661.5,
+      "ts": "2026-03-13T02:04:22.410423"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773367480",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 13.48258,
+      "price": 9.95,
+      "ts": "2026-03-13T02:04:40.341007"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773368276",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001693,
+      "price": 71577.0,
+      "ts": "2026-03-13T02:17:56.481734"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773368365",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2897.455266,
+      "price": 0.096646,
+      "ts": "2026-03-13T02:19:25.352254"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773368380",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 13.48258,
+      "price": 9.98,
+      "ts": "2026-03-13T02:19:40.936449"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773368409",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 317.77688,
+      "price": 0.271447,
+      "ts": "2026-03-13T02:20:09.004492"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773369198",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.052043,
+      "price": 2116.39,
+      "ts": "2026-03-13T02:33:18.505024"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773369241",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.230454,
+      "price": 660.7,
+      "ts": "2026-03-13T02:34:01.975307"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773369259",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 317.77688,
+      "price": 0.270925,
+      "ts": "2026-03-13T02:34:19.132684"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773369279",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002568,
+      "price": 71395.0,
+      "ts": "2026-03-13T02:34:39.574911"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773369293",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 2235.391381,
+      "price": 0.096227,
+      "ts": "2026-03-13T02:34:53.196203"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773369315",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 13.60604,
+      "price": 9.96,
+      "ts": "2026-03-13T02:35:15.589444"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773370038",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002568,
+      "price": 71188.0,
+      "ts": "2026-03-13T02:47:18.632723"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773370061",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.616734,
+      "price": 89.29,
+      "ts": "2026-03-13T02:47:41.619640"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773370102",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 13.60604,
+      "price": 9.9,
+      "ts": "2026-03-13T02:48:22.241207"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773370140",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.325471,
+      "price": 659.86,
+      "ts": "2026-03-13T02:49:00.436784"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773370158",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 334.222933,
+      "price": 0.269884,
+      "ts": "2026-03-13T02:49:18.980728"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773370915",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.325471,
+      "price": 659.69,
+      "ts": "2026-03-13T03:01:55.451116"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773370950",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 334.222933,
+      "price": 0.269868,
+      "ts": "2026-03-13T03:02:30.435731"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773370965",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.003371,
+      "price": 71151.0,
+      "ts": "2026-03-13T03:02:45.000990"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773370987",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.071757,
+      "price": 2105.99,
+      "ts": "2026-03-13T03:03:07.903807"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773371007",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.989615,
+      "price": 89.14,
+      "ts": "2026-03-13T03:03:27.410633"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773371026",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 11.283649,
+      "price": 9.9,
+      "ts": "2026-03-13T03:03:46.671423"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773371795",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.003371,
+      "price": 71185.0,
+      "ts": "2026-03-13T03:16:35.010449"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773371812",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.071757,
+      "price": 2107.02,
+      "ts": "2026-03-13T03:16:52.638707"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773371883",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 11.283649,
+      "price": 9.91,
+      "ts": "2026-03-13T03:18:03.970132"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773371899",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.204709,
+      "price": 658.92,
+      "ts": "2026-03-13T03:18:19.358839"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773371913",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 293.265147,
+      "price": 0.269837,
+      "ts": "2026-03-13T03:18:33.850788"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773372667",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.989615,
+      "price": 89.42,
+      "ts": "2026-03-13T03:31:07.513183"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773372687",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.204709,
+      "price": 658.59,
+      "ts": "2026-03-13T03:31:27.452343"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773372709",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 2235.391381,
+      "price": 0.096181,
+      "ts": "2026-03-13T03:31:49.165609"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773372725",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 293.265147,
+      "price": 0.26989,
+      "ts": "2026-03-13T03:32:05.413573"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773372741",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002385,
+      "price": 71075.0,
+      "ts": "2026-03-13T03:32:21.507445"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773372790",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 10.037701,
+      "price": 9.9,
+      "ts": "2026-03-13T03:33:10.324089"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773373536",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002385,
+      "price": 71121.0,
+      "ts": "2026-03-13T03:45:36.688325"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773373553",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 10.037701,
+      "price": 9.87,
+      "ts": "2026-03-13T03:45:53.377696"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773373571",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.099634,
+      "price": 2108.94,
+      "ts": "2026-03-13T03:46:11.691233"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773373589",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 2.763619,
+      "price": 89.21,
+      "ts": "2026-03-13T03:46:29.691791"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773373602",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.314405,
+      "price": 658.69,
+      "ts": "2026-03-13T03:46:42.975804"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773373616",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1357.453832,
+      "price": 0.096114,
+      "ts": "2026-03-13T03:46:56.240258"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773374441",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.314405,
+      "price": 661.6,
+      "ts": "2026-03-13T04:00:41.125353"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773374459",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1357.453832,
+      "price": 0.096665,
+      "ts": "2026-03-13T04:00:59.179510"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773374475",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002746,
+      "price": 71402.0,
+      "ts": "2026-03-13T04:01:15.575035"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773374507",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 189.604462,
+      "price": 0.271462,
+      "ts": "2026-03-13T04:01:47.887935"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773374524",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 11.794224,
+      "price": 9.95,
+      "ts": "2026-03-13T04:02:04.389818"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773375278",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002746,
+      "price": 71408.0,
+      "ts": "2026-03-13T04:14:38.745687"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773375295",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.099634,
+      "price": 2116.74,
+      "ts": "2026-03-13T04:14:55.067807"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773375319",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 2.763619,
+      "price": 89.61,
+      "ts": "2026-03-13T04:15:19.873525"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773375340",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 189.604462,
+      "price": 0.272311,
+      "ts": "2026-03-13T04:15:40.167016"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773375356",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 11.794224,
+      "price": 9.93,
+      "ts": "2026-03-13T04:15:56.474408"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773375371",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.217867,
+      "price": 660.85,
+      "ts": "2026-03-13T04:16:11.797369"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773375383",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1749.159514,
+      "price": 0.09658,
+      "ts": "2026-03-13T04:16:23.655467"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773376171",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002879,
+      "price": 71285.0,
+      "ts": "2026-03-13T04:29:31.243817"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773376189",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.056976,
+      "price": 2112.51,
+      "ts": "2026-03-13T04:29:49.753579"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773376203",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.859792,
+      "price": 89.34,
+      "ts": "2026-03-13T04:30:03.091667"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773376221",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 538.87981,
+      "price": 0.271332,
+      "ts": "2026-03-13T04:30:21.475204"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773376239",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.655869,
+      "price": 9.91,
+      "ts": "2026-03-13T04:30:39.012014"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773376999",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002879,
+      "price": 71378.0,
+      "ts": "2026-03-13T04:43:19.745917"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773377022",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.056976,
+      "price": 2114.7,
+      "ts": "2026-03-13T04:43:42.333065"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_sell_1773377039",
+      "symbol": "SOL/USDT",
+      "side": "sell",
+      "qty": 1.859792,
+      "price": 89.35,
+      "ts": "2026-03-13T04:43:59.369452"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773377097",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 538.87981,
+      "price": 0.27073,
+      "ts": "2026-03-13T04:44:57.597524"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773377112",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.655869,
+      "price": 9.89,
+      "ts": "2026-03-13T04:45:12.523558"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_sell_1773377855",
+      "symbol": "BNB/USDT",
+      "side": "sell",
+      "qty": 0.217867,
+      "price": 660.4,
+      "ts": "2026-03-13T04:57:35.733752"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773377894",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002877,
+      "price": 71334.0,
+      "ts": "2026-03-13T04:58:14.155162"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773377916",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.085547,
+      "price": 2111.08,
+      "ts": "2026-03-13T04:58:36.639299"
+    },
+    {
+      "id": "CRYPTO_SOL/USDT_buy_1773377930",
+      "symbol": "SOL/USDT",
+      "side": "buy",
+      "qty": 1.779474,
+      "price": 89.31,
+      "ts": "2026-03-13T04:58:50.644787"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773377945",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 687.18239,
+      "price": 0.271357,
+      "ts": "2026-03-13T04:59:05.190233"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773378849",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.002877,
+      "price": 71290.0,
+      "ts": "2026-03-13T05:14:09.360046"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_sell_1773378867",
+      "symbol": "ETH/USDT",
+      "side": "sell",
+      "qty": 0.085547,
+      "price": 2105.73,
+      "ts": "2026-03-13T05:14:27.712174"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773378910",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1749.159514,
+      "price": 0.09594,
+      "ts": "2026-03-13T05:15:10.760851"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773378933",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 687.18239,
+      "price": 0.271386,
+      "ts": "2026-03-13T05:15:33.831558"
+    },
+    {
+      "id": "CRYPTO_BNB/USDT_buy_1773378948",
+      "symbol": "BNB/USDT",
+      "side": "buy",
+      "qty": 0.204202,
+      "price": 659.85,
+      "ts": "2026-03-13T05:15:48.127142"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773378964",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 7.984755,
+      "price": 9.9,
+      "ts": "2026-03-13T05:16:04.271154"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773379760",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 7.984755,
+      "price": 9.95,
+      "ts": "2026-03-13T05:29:20.944108"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773379775",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.001847,
+      "price": 71417.0,
+      "ts": "2026-03-13T05:29:35.545574"
+    },
+    {
+      "id": "CRYPTO_ETH/USDT_buy_1773379791",
+      "symbol": "ETH/USDT",
+      "side": "buy",
+      "qty": 0.115035,
+      "price": 2109.71,
+      "ts": "2026-03-13T05:29:51.276697"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773379810",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1587.931018,
+      "price": 0.09628,
+      "ts": "2026-03-13T05:30:10.641750"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773379833",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 329.010212,
+      "price": 0.272615,
+      "ts": "2026-03-13T05:30:33.795999"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_sell_1773380599",
+      "symbol": "BTC/USDT",
+      "side": "sell",
+      "qty": 0.001847,
+      "price": 71577.0,
+      "ts": "2026-03-13T05:43:19.727332"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_sell_1773380688",
+      "symbol": "DOGE/USDT",
+      "side": "sell",
+      "qty": 1587.931018,
+      "price": 0.096751,
+      "ts": "2026-03-13T05:44:48.388462"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_sell_1773380708",
+      "symbol": "ADA/USDT",
+      "side": "sell",
+      "qty": 329.010212,
+      "price": 0.274961,
+      "ts": "2026-03-13T05:45:08.140272"
+    },
+    {
+      "id": "CRYPTO_BTC/USDT_buy_1773381377",
+      "symbol": "BTC/USDT",
+      "side": "buy",
+      "qty": 0.002495,
+      "price": 71541.0,
+      "ts": "2026-03-13T05:56:17.626362"
+    },
+    {
+      "id": "CRYPTO_DOGE/USDT_buy_1773381389",
+      "symbol": "DOGE/USDT",
+      "side": "buy",
+      "qty": 1625.296669,
+      "price": 0.096624,
+      "ts": "2026-03-13T05:56:29.489788"
+    },
+    {
+      "id": "CRYPTO_ADA/USDT_buy_1773381402",
+      "symbol": "ADA/USDT",
+      "side": "buy",
+      "qty": 335.748348,
+      "price": 0.274407,
+      "ts": "2026-03-13T05:56:42.089335"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773381414",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.510157,
+      "price": 9.96,
+      "ts": "2026-03-13T05:56:54.441761"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773382067",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.510157,
+      "price": 9.95,
+      "ts": "2026-03-13T06:07:47.865476"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773382723",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.535182,
+      "price": 9.93,
+      "ts": "2026-03-13T06:18:43.760219"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773383373",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.535182,
+      "price": 9.89,
+      "ts": "2026-03-13T06:29:33.531049"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773384017",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.610472,
+      "price": 9.84,
+      "ts": "2026-03-13T06:40:17.850794"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_sell_1773385992",
+      "symbol": "AVAX/USDT",
+      "side": "sell",
+      "qty": 8.610472,
+      "price": 9.86,
+      "ts": "2026-03-13T07:13:12.611378"
+    },
+    {
+      "id": "CRYPTO_AVAX/USDT_buy_1773386666",
+      "symbol": "AVAX/USDT",
+      "side": "buy",
+      "qty": 8.594403,
+      "price": 9.86,
+      "ts": "2026-03-13T07:24:26.011567"
+    }
+  ]
+}

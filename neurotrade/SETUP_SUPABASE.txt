@@ -1,0 +1,100 @@
+==========================================
+  NEUROTRADE — SETUP SUPABASE + LOVABLE
+==========================================
+
+PASUL 1: CREEAZA PROIECT SUPABASE
+──────────────────────────────────
+1. Du-te la https://supabase.com → "Start your project"
+2. Sign up (GitHub e cel mai rapid)
+3. "New project":
+   - Name: neurotrade
+   - Database Password: alege una puternica, salveaz-o
+   - Region: alege cel mai apropiat (Frankfurt pt Romania)
+4. Asteapta ~2 minute sa se creeze proiectul
+
+
+PASUL 2: CREEAZA TABELELE
+──────────────────────────
+1. In Supabase Dashboard → SQL Editor → "New query"
+2. Copiaza TOT continutul din fisierul SUPABASE_SETUP.sql
+3. Click "Run" (sau Ctrl+Enter)
+4. Ar trebui sa vezi "Success" pentru fiecare comanda
+
+
+PASUL 3: ACTIVEAZA REALTIME
+─────────────────────────────
+1. Database → Replication (in meniu stanga)
+2. Dai toggle ON pentru TOATE cele 5 tabele:
+   - portfolio_snapshot ✓
+   - open_positions ✓
+   - signals ✓
+   - trades ✓
+   - cycle_logs ✓
+
+
+PASUL 4: COPIAZA CHEILE API
+─────────────────────────────
+1. Settings → API (in meniu stanga)
+2. Copiaza:
+   - "Project URL" → e.g. https://abcdefgh.supabase.co
+   - "anon public" key → un string lung de ~200 caractere
+3. Tine-le la indemana pentru pasii urmatori
+
+
+PASUL 5: CONFIGUREAZA BOTUL
+─────────────────────────────
+1. Deschide fisierul: supabase_client.py
+2. Inlocuieste liniile:
+   SUPABASE_URL = "https://YOUR_PROJECT.supabase.co"
+   SUPABASE_KEY = "YOUR_ANON_KEY"
+   Cu valorile tale reale din Pasul 4
+
+
+PASUL 6: LOVABLE — CREEAZA DASHBOARD-UL
+─────────────────────────────────────────
+1. Du-te la https://lovable.dev
+2. "New project" → "Start from scratch"
+3. Copiaza TOT continutul din LOVABLE_PROMPT.txt
+4. Lipeste-l ca primul mesaj in Lovable
+5. Asteapta sa genereze proiectul (~1-2 minute)
+6. Dupa generare, in Lovable → fisierul .env sau Settings:
+   VITE_SUPABASE_URL = <Project URL din Pasul 4>
+   VITE_SUPABASE_ANON_KEY = <anon key din Pasul 4>
+7. Deploy → vei primi un URL public (e.g. neurotrade.lovable.app)
+
+
+PASUL 7: TESTEAZA
+──────────────────
+1. Porneste botul: INSTALEAZA_SI_PORNESTE.bat
+2. Deschide dashboard-ul Lovable in browser
+3. Dupa primul ciclu (~5 minute) ar trebui sa apara datele live
+4. Verifica si log-urile botului pentru erori Supabase
+
+
+TROUBLESHOOTING
+────────────────
+❌ "Supabase: WARNING 401"
+   → Cheia API e gresita, verifica supabase_client.py
+
+❌ "Supabase: WARNING 403"  
+   → Politicile RLS nu sunt setate, re-ruleaza SUPABASE_SETUP.sql
+
+❌ Dashboard arata date vechi
+   → Verifica Replication (Pasul 3) sa fie activ
+
+❌ "relation does not exist"
+   → Tabelele nu s-au creat, re-ruleaza SUPABASE_SETUP.sql
+
+❌ Lovable nu vede datele
+   → Verifica VITE_SUPABASE_URL si VITE_SUPABASE_ANON_KEY in .env
+
+
+NOTE IMPORTANTE
+────────────────
+• Planul gratuit Supabase: 500MB stocare, 2GB bandwidth/luna
+  → Suficient pentru luni de trading non-stop
+• Logs vechi: botul nu sterge cycle_logs automat
+  Dupa 30 de zile, poti rula: DELETE FROM cycle_logs WHERE timestamp < NOW() - INTERVAL '7 days'
+• Securitate: anon key e publica (doar citire + scriere din bot)
+  Dashboard-ul nu are autentificare — URL-ul e "secretul"
+==========================================

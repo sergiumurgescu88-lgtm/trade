@@ -1,0 +1,741 @@
+"""
+bot.py — NeuroTrade Bot v3.0
+Optimizat pentru frecventa mare de tranzactionare:
+  - 28 simboluri (stocks + ETF-uri)
+  - Ciclu 5 minute
+  - Confidence min 55%
+  - Max 12 pozitii simultane
+  - Circuit breaker zilnic
+  - Portfolio risk cap 85%
+  - Take profit 8%, Stop loss 4%, Trailing 3%
+"""
+
+import asyncio
+import logging
+import os
+import time
+from datetime import datetime, date
+
+import alpaca_client as alpaca
+import news_client as news
+import gemini_client as gemini
+import indicators
+import market_regime as regime
+import risk_manager as risk
+import position_sizer as sizer
+import history
+import telegram_client as telegram
+import supabase_client as supabase
+from config import (
+
+    ALL_SYMBOLS, SYMBOLS, ETF_SYMBOLS, CYCLE_MINUTES,
+    CONFIDENCE_THRESHOLD, MAX_OPEN_POSITIONS, STARTING_CAPITAL,
+    SYMBOL_DELAY_SEC, RSI_BUY_MAX, RSI_SELL_MIN, RSI_PERIOD,
+    MACD_FAST, MACD_SLOW, MACD_SIGNAL, EMA_FAST, EMA_SLOW,
+    HISTORY_BARS, STOP_LOSS_PCT, TAKE_PROFIT_PCT, TRAILING_STOP_PCT,
+    SAFE_MODE_DROP_PCT, DAILY_LOSS_LIMIT_PCT, PORTFOLIO_RISK_CAP,
+    MAX_POSITION_USD, MIN_POSITION_USD, ETF_SYMBOLS,
+)
+
+# ============================================================
+# LOGGING
+# ============================================================
+os.makedirs("logs", exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=[
+        logging.FileHandler("logs/neurotrade.log", encoding="utf-8")
+    ]
+)
+log = logging.getLogger("Bot")
+
+# ============================================================
+# STATE GLOBAL
+# ============================================================
+_daily_start_equity: float = 0.0
+_daily_reset_date: date = None
+_paused = [False]
+_reentry_queue = set()  # simboluri pentru re-entry dupa take profit
+
+
+def _reset_daily_if_needed(equity: float):
+    global _daily_start_equity, _daily_reset_date
+    today = date.today()
+    if _daily_reset_date != today:
+        _daily_start_equity = equity
+        _daily_reset_date   = today
+        log.info(f"Reset zilnic — equity start: ${equity:,.2f}")
+
+
+def _is_daily_loss_hit(equity: float) -> bool:
+    if _daily_start_equity <= 0:
+        return False
+    loss_pct = (equity - _daily_start_equity) / _daily_start_equity
+    return loss_pct < -DAILY_LOSS_LIMIT_PCT
+
+
+def _get_deployed_pct(positions: list, equity: float) -> float:
+    """Cat % din equity este investit in pozitii deschise."""
+    if equity <= 0:
+        return 0.0
+    total_mv = sum(float(p.get("market_value", 0) or 0) for p in positions)
+    return total_mv / equity
+
+
+# ============================================================
+# MESAJE TELEGRAM
+# ============================================================
+
+def fmt_startup(account: dict, conn: dict) -> str:
+    eq   = float(account.get("equity", 0)) if account else 0
+    cash = float(account.get("cash", account.get("buying_power", 0))) if account else 0
+    news_ok = "✅" if conn["news"] else "⚠️ (fallback Yahoo RSS)"
+    return "\n".join([
+        "🚀 <b>NEUROTRADE BOT v3.0 PORNIT</b>",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        f"{'✅' if conn['alpaca']    else '❌'} Alpaca Paper Trading",
+        f"{'✅' if conn['gemini']    else '❌'} Gemini AI",
+        f"{news_ok} News (8 surse)",
+        f"{'✅' if conn['telegram'] else '❌'} Telegram",
+        f"{'✅' if conn['supabase'] else '❌'} Supabase Dashboard",
+        "",
+        f"💰 <b>Capital:</b> ${eq:,.2f}",
+        f"💵 <b>Cash:</b>    ${cash:,.2f}",
+        "",
+        f"📋 <b>Simboluri:</b> {len(ALL_SYMBOLS)} total "
+        f"({len(SYMBOLS)} stocks + {len(ETF_SYMBOLS)} ETF-uri)",
+        "",
+        "⚙️ <b>Parametri v3.0 (optimizat):</b>",
+        f"  ⏱ Ciclu:         {CYCLE_MINUTES} minute",
+        f"  🎯 Confidence:    ≥{CONFIDENCE_THRESHOLD}%",
+        f"  📌 Max pozitii:   {MAX_OPEN_POSITIONS}",
+        f"  🔴 Stop Loss:     -{STOP_LOSS_PCT*100:.0f}%",
+        f"  💰 Take Profit:   +{TAKE_PROFIT_PCT*100:.0f}%",
+        f"  📌 Trailing:      -{TRAILING_STOP_PCT*100:.0f}%",
+        f"  🛡 Risk cap:      {PORTFOLIO_RISK_CAP*100:.0f}%",
+        f"  ⛔ Pierdere/zi:   -{DAILY_LOSS_LIMIT_PCT*100:.0f}%",
+        f"\n🕐 {datetime.now().strftime('%d.%m.%Y %H:%M:%S')}",
+    ])
+
+
+def fmt_signal(symbol: str, signal: dict, tech: dict, price: float,
+               blocked: bool = False, block_reason: str = "") -> str:
+    action  = signal.get("action", "HOLD")
+    conf    = signal.get("confidence", 0)
+    reason  = signal.get("reasoning", "")
+    risk_l  = signal.get("risk", "MEDIUM")
+    rsi_val = tech.get("rsi")
+    rsi_str = f"{rsi_val:.0f}" if rsi_val is not None else "N/A"
+    ema_t   = tech.get("ema_trend", "neutral")
+    macd_c  = tech.get("macd_crossover", "none")
+    tech_r  = tech.get("tech_recommendation", "N/A")
+
+    icons = {"BUY": "🟢", "SELL": "🔴", "HOLD": "⚪"}
+    risk_icons = {"LOW": "🟢", "MEDIUM": "🟡", "HIGH": "🔴"}
+    conf_bar = "█" * int(conf / 10) + "░" * (10 - int(conf / 10))
+
+    lines = [
+        f"{icons.get(action,'⚪')} <b>{symbol}</b> — <b>{action}</b>",
+        f"💲 Pret: ${price:.2f}",
+        f"🎯 Confidence: [{conf_bar}] {conf}%",
+        f"📊 RSI: {rsi_str} | MACD: {macd_c} | EMA: {ema_t}",
+        f"🔬 Tech: {tech_r}",
+        f"{risk_icons.get(risk_l,'🟡')} Risc: {risk_l}",
+    ]
+    if reason:
+        lines.append(f"💬 <i>{reason[:250]}</i>")
+    if blocked:
+        lines.append(f"⛔ <b>BLOCAT:</b> {block_reason}")
+    return "\n".join(lines)
+
+
+def fmt_portfolio(account: dict, positions: list,
+                  cycle: int, regime_info: dict, stats: dict) -> str:
+    eq   = float(account.get("equity", 0))
+    cash = float(account.get("cash", account.get("buying_power", 0)))
+    pnl  = eq - STARTING_CAPITAL
+    pnl_pct = (pnl / STARTING_CAPITAL) * 100
+    pnl_icon = "📈" if pnl >= 0 else "📉"
+
+    total  = stats.get("total", 0)
+    wins   = stats.get("wins", 0)
+    total_pl = stats.get("total_pl", 0.0)
+    win_rate = (wins / total * 100) if total > 0 else 0
+
+    deployed_pct = _get_deployed_pct(positions, eq) * 100
+
+    pos_lines = []
+    for p in positions[:6]:  # max 6 in mesaj
+        sym   = p.get("symbol", "?")
+        pl_p  = float(p.get("unrealized_pl", 0) or 0)
+        pl_pc = float(p.get("unrealized_plpc", 0) or 0) * 100
+        mv    = float(p.get("market_value", 0) or 0)
+        icon  = "🟢" if pl_p >= 0 else "🔴"
+        pos_lines.append(f"  {icon} {sym}: ${mv:,.0f} | {pl_pc:+.1f}%")
+
+    extra = f"  ... +{len(positions)-6} pozitii" if len(positions) > 6 else ""
+
+    return "\n".join([
+        f"💼 <b>PORTFOLIO — Ciclu #{cycle}</b>",
+        "━━━━━━━━━━━━━━━━━━━━",
+        f"💰 Equity: ${eq:,.2f}",
+        f"💵 Cash:   ${cash:,.2f}",
+        f"{pnl_icon} P&L: ${pnl:+,.2f} ({pnl_pct:+.2f}%)",
+        f"📊 Capital deployed: {deployed_pct:.1f}%",
+        "",
+        f"📌 Pozitii: {len(positions)}/{MAX_OPEN_POSITIONS}",
+        *pos_lines,
+        *([ extra ] if extra else []),
+        "",
+        f"📋 Trades: {total} | Win: {win_rate:.0f}% | P&L realizat: ${total_pl:+,.2f}",
+        f"🌍 {regime_info.get('reason','')[:60]}",
+    ])
+
+
+# ============================================================
+# RISK MANAGER — VERIFICA POZITII DESCHISE
+# ============================================================
+
+async def check_risk_exits(positions: list) -> tuple[list, list]:
+    """
+    Verifica stop loss, take profit si trailing stop pentru
+    toate pozitiile deschise. Returneaza (pozitii_inchise, mesaje).
+    """
+    closed  = []
+    msgs    = []
+
+    for pos in positions:
+        symbol    = pos.get("symbol", "?")
+        qty       = int(float(pos.get("qty", 0)))
+        entry     = float(pos.get("avg_entry_price", 0) or 0)
+        current   = float(pos.get("current_price", 0) or 0)
+        unr_pct   = float(pos.get("unrealized_plpc", 0) or 0)
+        unr_pl    = float(pos.get("unrealized_pl", 0) or 0)
+
+        if entry <= 0 or current <= 0 or qty <= 0:
+            continue
+
+        close_type = None
+
+        # Stop Loss
+        if unr_pct <= -STOP_LOSS_PCT:
+            close_type = "STOP_LOSS"
+
+        # Take Profit
+        elif unr_pct >= TAKE_PROFIT_PCT:
+            close_type = "TAKE_PROFIT"
+
+        # Trailing Stop: inchidem daca scadem mai mult de TRAILING_STOP_PCT
+        # fata de peak (aproximam peak-ul cu take_profit * 50% ca proxy)
+        elif unr_pct > 0:
+            peak_pct = max(unr_pct, TAKE_PROFIT_PCT * 0.5)
+            drop_from_peak = peak_pct - unr_pct
+            if drop_from_peak >= TRAILING_STOP_PCT and unr_pct > 0.005:
+                close_type = "TRAILING_STOP"
+
+        if close_type:
+            log.info(f"[{symbol}] {close_type}: {unr_pct*100:+.2f}% | P&L: ${unr_pl:.2f}")
+            ok = alpaca.close_position(symbol)
+            if ok:
+                history.add_trade(
+                    symbol, "SELL", qty, current,
+                    confidence=0, close_type=close_type, pl=unr_pl
+                )
+                closed.append(symbol)
+                icon = {"STOP_LOSS": "🛑", "TAKE_PROFIT": "💰", "TRAILING_STOP": "📌"}.get(close_type, "⚪")
+                msgs.append(
+                    f"{icon} <b>{symbol}</b> inchis [{close_type}] "
+                    f"@ ${current:.2f} | P&L: ${unr_pl:+.2f} ({unr_pct*100:+.1f}%)"
+                )
+                supabase.push_trade(symbol, "SELL", qty, current,
+                                    0, close_type, unr_pl, "")
+                # RE-ENTRY: dupa TAKE_PROFIT sau TRAILING_STOP, marcam pentru recumparare
+                if close_type in ["TAKE_PROFIT", "TRAILING_STOP"]:
+                    _reentry_queue.add(symbol)
+                    log.info(f"[{symbol}] Re-entry queue adaugat dupa {close_type}")
+            await asyncio.sleep(0.5)
+
+    return closed, msgs
+
+
+# ============================================================
+# SHOULD EXECUTE
+# ============================================================
+
+def should_execute(action: str, signal: dict, tech: dict,
+                   positions: list, account: dict,
+                   safe_mode: bool, deployed_pct: float, price: float = 0.0) -> tuple[bool, str]:
+    """
+    Decide daca executam tranzactia sau o blocam.
+    Returneaza (True/False, motiv_blocare).
+    """
+    conf        = signal.get("confidence", 0)
+    position_syms = {p.get("symbol") for p in positions}
+    symbol      = signal.get("symbol", "")
+    eq          = float(account.get("equity", 0) or 0)
+    cash        = float(account.get("cash", account.get("buying_power", 0)) or 0)
+    rsi_val     = tech.get("rsi")
+
+    # ── BUY ─────────────────────────────────────────────────
+    if action == "BUY":
+        if safe_mode:
+            return False, "Safe Mode activ — nu cumparam"
+        if conf < CONFIDENCE_THRESHOLD:
+            return False, f"Confidence {conf}% < {CONFIDENCE_THRESHOLD}%"
+        if symbol in position_syms:
+            return False, "Pozitie deschisa deja"
+        # Re-entry priority: simbolurile din queue au prioritate
+        if symbol in _reentry_queue:
+            _reentry_queue.discard(symbol)
+            log.info(f"[{symbol}] Re-entry executat!")
+        if len(positions) >= MAX_OPEN_POSITIONS:
+            return False, f"Max pozitii atinse ({MAX_OPEN_POSITIONS})"
+        if deployed_pct >= PORTFOLIO_RISK_CAP:
+            return False, f"Risk cap {PORTFOLIO_RISK_CAP*100:.0f}% atins ({deployed_pct*100:.1f}% deployed)"
+        if cash < MIN_POSITION_USD:
+            return False, f"Cash insuficient (${cash:.0f} < ${MIN_POSITION_USD})"
+        # Verificam ca pozitia poate genera minim $1 profit
+        min_profit_qty = MIN_POSITION_USD / price if price > 0 else 0
+        expected_profit = min_profit_qty * price * TAKE_PROFIT_PCT
+        if expected_profit < 1.0:
+            return False, f"Profit estimat sub $1 (${expected_profit:.2f})"
+        if rsi_val and rsi_val > RSI_BUY_MAX:
+            return False, f"RSI prea mare pentru BUY: {rsi_val:.0f} > {RSI_BUY_MAX}"
+        if _is_daily_loss_hit(eq):
+            return False, f"Circuit breaker zilnic: pierdere >{DAILY_LOSS_LIMIT_PCT*100:.0f}%"
+        return True, ""
+
+    # ── SELL ────────────────────────────────────────────────
+    if action == "SELL":
+        if conf < CONFIDENCE_THRESHOLD:
+            return False, f"Confidence {conf}% < {CONFIDENCE_THRESHOLD}%"
+        if symbol not in position_syms:
+            return False, "Nu avem pozitie deschisa"
+        if rsi_val and rsi_val < RSI_SELL_MIN:
+            return False, f"RSI prea mic pentru SELL: {rsi_val:.0f} < {RSI_SELL_MIN}"
+        return True, ""
+
+    return False, "HOLD"
+
+
+# ============================================================
+# EXECUTE TRADE
+# ============================================================
+
+async def execute_trade(symbol: str, action: str, signal: dict,
+                        tech: dict, price: float,
+                        account: dict, positions: list) -> bool:
+    conf    = signal.get("confidence", 0)
+    rsi_val = tech.get("rsi")
+    cash    = float(account.get("cash", account.get("buying_power", 0)) or 0)
+
+    if action == "BUY":
+        qty = sizer.calc_quantity(conf, cash, price)
+        if qty <= 0:
+            log.warning(f"[{symbol}] qty=0 — skip BUY")
+            return False
+        order = alpaca.place_order(symbol, "buy", qty)
+        if order:
+            pl_est = 0.0
+            history.add_trade(symbol, "BUY", qty, price,
+                               confidence=conf, close_type="SIGNAL", pl=pl_est)
+            supabase.push_trade(symbol, "BUY", qty, price,
+                                conf, "SIGNAL", pl_est,
+                                order.get("id", ""))
+            log.info(f"[{symbol}] BUY {qty} @ ${price:.2f} | conf={conf}% | RSI={rsi_val}")
+            return True
+        else:
+            log.error(f"[{symbol}] BUY order failed")
+            return False
+
+    if action == "SELL":
+        pos = next((p for p in positions if p.get("symbol") == symbol), None)
+        if not pos:
+            log.warning(f"[{symbol}] Pozitie negasita pentru SELL")
+            return False
+        qty    = int(float(pos.get("qty", 0)))
+        unr_pl = float(pos.get("unrealized_pl", 0) or 0)
+        if qty <= 0:
+            return False
+        ok = alpaca.close_position(symbol)
+        if ok:
+            history.add_trade(symbol, "SELL", qty, price,
+                               confidence=conf, close_type="SIGNAL", pl=unr_pl)
+            supabase.push_trade(symbol, "SELL", qty, price,
+                                conf, "SIGNAL", unr_pl, "")
+            log.info(f"[{symbol}] SELL {qty} @ ${price:.2f} | P&L=${unr_pl:.2f}")
+            return True
+        else:
+            log.error(f"[{symbol}] SELL order failed")
+            return False
+
+    return False
+
+
+# ============================================================
+# CICLU PRINCIPAL
+# ============================================================
+
+async def run_cycle(cycle: int):
+    log.info(f"{'='*20} CICLU #{cycle} START {'='*20}")
+    supabase.push_cycle_log(cycle, f"CICLU #{cycle} START", "INFO")
+
+    # ── 1. Stare cont ────────────────────────────────────────
+    account   = alpaca.get_account()
+    positions = alpaca.get_positions()
+    if not account:
+        log.error("Account indisponibil — skip ciclu")
+        return
+
+    eq   = float(account.get("equity", 0))
+    cash = float(account.get("cash", account.get("buying_power", 0)))
+    _reset_daily_if_needed(eq)
+
+    deployed_pct = _get_deployed_pct(positions, eq)
+    log.info(f"Equity: ${eq:,.2f} | Cash: ${cash:,.2f} | "
+             f"Pozitii: {len(positions)}/{MAX_OPEN_POSITIONS} | "
+             f"Deployed: {deployed_pct*100:.1f}%")
+
+    # ── 2. Circuit breaker zilnic ────────────────────────────
+    if _is_daily_loss_hit(eq):
+        msg = (f"⛔ <b>CIRCUIT BREAKER ZILNIC</b>\n"
+               f"Pierdere >{DAILY_LOSS_LIMIT_PCT*100:.0f}% azi — "
+               f"nu mai cumparam pana maine.")
+        log.warning(msg)
+        telegram.send(msg)
+        supabase.push_cycle_log(cycle, "Circuit breaker zilnic activ", "WARNING")
+        # Continuam sa verificam risk exits dar nu mai cumparam
+        positions = alpaca.get_positions()
+        closed, risk_msgs = await check_risk_exits(positions)
+        if risk_msgs:
+            telegram.send("\n".join(["⚠️ <b>Risk exits:</b>"] + risk_msgs))
+        return
+
+    # ── 3. Regim piata ───────────────────────────────────────
+    regime_info = regime.get_regime()
+    safe_mode   = regime_info.get("safe_mode", False)
+    log.info(f"Market: {regime_info.get('trend')} | "
+             f"SPY: {regime_info.get('spy_change_pct',0):+.2f}% | "
+             f"Safe: {safe_mode}")
+
+    if safe_mode:
+        telegram.send(f"⚠️ <b>SAFE MODE ACTIV</b>\n{regime_info['reason']}")
+        supabase.push_cycle_log(cycle, f"Safe Mode: {regime_info['reason']}", "WARNING")
+
+    # ── 4. Risk exits pentru pozitii deschise ────────────────
+    closed_syms, risk_msgs = await check_risk_exits(positions)
+    if risk_msgs:
+        telegram.send("\n".join(["📊 <b>Risk Management:</b>"] + risk_msgs))
+        supabase.push_cycle_log(cycle,
+            f"Risk exits: {', '.join(closed_syms)}", "INFO")
+        # Refresh dupa inchideri
+        positions = alpaca.get_positions()
+        account   = alpaca.get_account()
+        cash      = float(account.get("cash", account.get("buying_power", 0)))
+        deployed_pct = _get_deployed_pct(positions, eq)
+
+    # ── 5. Daca safe mode, nu mai scanam ─────────────────────
+    if safe_mode:
+        # Actualizeaza Supabase si iesi
+        _push_supabase_snapshot(account, positions, regime_info, cycle)
+        return
+
+    # ── 6. Verifica capacitate ───────────────────────────────
+    if len(positions) >= MAX_OPEN_POSITIONS:
+        log.info(f"Max pozitii atinse ({MAX_OPEN_POSITIONS}) — skip scan")
+        supabase.push_cycle_log(cycle,
+            f"Max pozitii ({MAX_OPEN_POSITIONS}) — skip scan", "INFO")
+        _push_supabase_snapshot(account, positions, regime_info, cycle)
+        return
+
+    if deployed_pct >= PORTFOLIO_RISK_CAP:
+        log.info(f"Risk cap {PORTFOLIO_RISK_CAP*100:.0f}% atins — skip scan")
+        _push_supabase_snapshot(account, positions, regime_info, cycle)
+        return
+
+    # ── 7. Preturi batch ─────────────────────────────────────
+    prices = alpaca.get_prices_batch(ALL_SYMBOLS)
+    log.info(f"Preturi obtinute: {len(prices)}/{len(ALL_SYMBOLS)} simboluri")
+
+    # ── 8. Scan simboluri ────────────────────────────────────
+    position_syms = {p.get("symbol") for p in positions}
+    executed = 0
+    blocked  = 0
+    cycle_lines = [
+        f"🔄 <b>CICLU #{cycle}</b> — {datetime.now().strftime('%H:%M')} "
+        f"| {len(ALL_SYMBOLS)} simboluri",
+        f"📡 {regime_info.get('reason','')[:55]}",
+        f"📌 Pozitii: {len(positions)}/{MAX_OPEN_POSITIONS} "
+        f"| Deployed: {deployed_pct*100:.0f}%",
+        ""
+    ]
+
+    # Prioritizeaza: 1) simboluri cu pozitii deschise (SELL), 2) rest (BUY)
+    symbols_with_pos  = [s for s in ALL_SYMBOLS if s in position_syms]
+    symbols_available = [s for s in ALL_SYMBOLS if s not in position_syms]
+    scan_order = symbols_with_pos + symbols_available
+
+    for symbol in scan_order:
+        # Verifica din nou capacitatea la fiecare simbol
+        if (len(positions) >= MAX_OPEN_POSITIONS and
+                symbol not in position_syms):
+            break
+        if (deployed_pct >= PORTFOLIO_RISK_CAP and
+                symbol not in position_syms):
+            break
+
+        price = prices.get(symbol)
+        if not price:
+            log.debug(f"[{symbol}] pret indisponibil — skip")
+            continue
+
+        try:
+            # Indicatori tehnici
+            closes = alpaca.get_closes(symbol, limit=HISTORY_BARS)
+            if closes and len(closes) >= 15:
+                tech = indicators.analyze_all(
+                    closes,
+                    rsi_period=RSI_PERIOD,
+                    macd_fast=MACD_FAST, macd_slow=MACD_SLOW,
+                    macd_signal=MACD_SIGNAL,
+                    ema_fast=EMA_FAST, ema_slow=EMA_SLOW
+                )
+            else:
+                tech = {
+                    "rsi": None, "macd": None, "macd_crossover": "none",
+                    "ema_trend": "neutral", "tech_score": 0,
+                    "tech_recommendation": "N/A"
+                }
+                log.debug(f"[{symbol}] date insuficiente ({len(closes)} bare)")
+
+            # Stiri
+            articles = news.get_news(symbol)
+            supabase.push_cycle_log(cycle,
+                f"{symbol}: {len(articles)} stiri, pret ${price:.2f}", "INFO")
+            time.sleep(2)  # anti-rate-limit NewsAPI
+
+            # Gemini AI — refresh pozitii live (anti-duplicate)
+            fresh_positions  = alpaca.get_positions()
+            position_syms    = {p.get("symbol") for p in fresh_positions}
+            has_pos          = symbol in position_syms
+            positions        = fresh_positions
+            deployed_pct     = _get_deployed_pct(positions, eq)
+
+            signal = gemini.analyze(symbol, articles, price, has_pos, tech)
+            signal["symbol"] = symbol
+
+            action = signal["action"]
+            conf   = signal["confidence"]
+            rsi_str = f"{tech['rsi']:.0f}" if tech.get("rsi") else "N/A"
+            tech_r  = tech.get("tech_recommendation", "N/A")
+
+            emoji = {"BUY": "🟢", "SELL": "🔴", "HOLD": "⚪"}.get(action, "⚪")
+            cycle_lines.append(
+                f"{emoji} <b>{symbol}</b> ${price:.2f} | "
+                f"{action} {conf}% | RSI:{rsi_str} | {tech_r}"
+            )
+
+            if action in ["BUY", "SELL"]:
+                can_trade, reason = should_execute(
+                    action, signal, tech,
+                    positions, account, safe_mode, deployed_pct, price
+                )
+                if can_trade:
+                    # Informa Telegram doar daca conf >= 70 sau e SELL
+                    if conf >= 70 or action == "SELL":
+                        telegram.send(fmt_signal(symbol, signal, tech, price))
+                    traded = await execute_trade(
+                        symbol, action, signal, tech, price, account, positions
+                    )
+                    if traded:
+                        executed += 1
+                        account      = alpaca.get_account()
+                        positions    = alpaca.get_positions()
+                        position_syms = {p.get("symbol") for p in positions}
+                        deployed_pct = _get_deployed_pct(positions,
+                            float(account.get("equity", eq)))
+                    supabase.push_signal(
+                        symbol, action, conf, price, tech,
+                        signal.get("reasoning", ""),
+                        signal.get("risk", "LOW"),
+                        traded if can_trade else False, ""
+                    )
+                else:
+                    blocked += 1
+                    log.info(f"[{symbol}] {action} BLOCAT: {reason}")
+                    supabase.push_cycle_log(cycle,
+                        f"[{symbol}] {action} BLOCAT: {reason}", "WARNING")
+                    # Trimitem Telegram doar daca conf mare (merita mentionat)
+                    if conf >= 80:
+                        telegram.send(fmt_signal(
+                            symbol, signal, tech, price,
+                            blocked=True, block_reason=reason
+                        ))
+                    supabase.push_signal(
+                        symbol, action, conf, price, tech,
+                        signal.get("reasoning", ""),
+                        signal.get("risk", "LOW"),
+                        False, reason
+                    )
+            else:
+                # HOLD
+                try:
+                    supabase.push_signal(
+                        symbol, "HOLD", conf, price, tech,
+                        signal.get("reasoning", ""),
+                        signal.get("risk", "LOW"), False, ""
+                    )
+                except Exception:
+                    pass
+
+        except Exception as e:
+            log.error(f"[{symbol}] Eroare ciclu: {e}", exc_info=True)
+            cycle_lines.append(f"⚠️ <b>{symbol}</b> — eroare")
+
+        await asyncio.sleep(SYMBOL_DELAY_SEC)
+
+    # ── 9. Rezumat ciclu ─────────────────────────────────────
+    cycle_lines += [
+        "",
+        f"⚡ <b>Rezultat:</b> {executed} executate | "
+        f"{blocked} blocate | {len(closed_syms)} risk exits",
+    ]
+    telegram.send("\n".join(cycle_lines))
+
+    # ── 10. Portfolio summary ─────────────────────────────────
+    account_f  = alpaca.get_account()
+    positions_f = alpaca.get_positions()
+    if account_f:
+        stats = history.get_summary()
+        telegram.send(fmt_portfolio(
+            account_f, positions_f, cycle, regime_info, stats
+        ))
+
+    # ── 11. Supabase snapshot ─────────────────────────────────
+    _push_supabase_snapshot(account_f or account,
+                            positions_f, regime_info, cycle)
+
+    log.info(f"{'='*20} CICLU #{cycle} FINISH | "
+             f"exec={executed} blocked={blocked} "
+             f"risk_exits={len(closed_syms)} {'='*20}")
+    supabase.push_cycle_log(cycle,
+        f"CICLU #{cycle} FINISH — {executed} executate, "
+        f"{blocked} blocate, {len(closed_syms)} risk exits", "INFO")
+
+
+def _push_supabase_snapshot(account, positions, regime_info, cycle):
+    """Helper: trimite datele la Supabase pentru dashboard."""
+    try:
+        prices_snap  = alpaca.get_prices_batch(ALL_SYMBOLS)
+        stats_snap   = history.get_summary()
+        if account:
+            supabase.push_portfolio(
+                account, positions, regime_info, cycle, stats_snap
+            )
+            supabase.push_positions(positions, prices_snap)
+    except Exception as e:
+        log.warning(f"Supabase snapshot error: {e}")
+
+
+# ============================================================
+# ENTRY POINT
+# ============================================================
+
+async def main():
+    log.info("NeuroTrade Bot v3.0 pornit")
+
+    conn = {
+        "alpaca":   alpaca.test_connection(),
+        "gemini":   gemini.test_connection(),
+        "news":     news.test_connection(),
+        "telegram": telegram.test_connection(),
+        "supabase": supabase.test_connection(),
+    }
+    for name, ok in conn.items():
+        log.info(f"  {name}: {'OK' if ok else 'EROARE'}")
+
+    account = alpaca.get_account()
+    telegram.send(fmt_startup(account, conn))
+
+    # ── Callbacks Telegram menu ──────────────────────────────
+    cycle_ref = [0]
+
+    def _pause():
+        _paused[0] = True
+        log.info("Bot pus in pauza din Telegram.")
+
+    def _resume():
+        _paused[0] = False
+        log.info("Bot reluat din Telegram.")
+
+    def _is_paused():
+        return _paused[0]
+
+    telegram.register_callbacks({
+        "get_positions": alpaca.get_positions,
+        "get_account":   alpaca.get_account,
+        "get_trades":    history.get_all_trades if hasattr(history, "get_all_trades") else lambda: [],
+        "get_stats":     history.get_summary,
+        "get_regime":    regime.get_regime,
+        "pause":         _pause,
+        "resume":        _resume,
+        "is_paused":     _is_paused,
+        "get_cycle":     lambda: cycle_ref[0],
+    })
+    telegram.start_polling()
+
+    if not conn["alpaca"]:
+        log.error("Alpaca offline — opresc botul.")
+        telegram.send("❌ <b>Alpaca offline — bot oprit.</b>")
+        return
+
+    cycle = 0
+    while True:
+        try:
+            # Pauza din Telegram
+            if _paused[0]:
+                log.info("Bot in pauza...")
+                await asyncio.sleep(30)
+                continue
+
+            # Stop din Telegram
+            if telegram.is_stop_requested():
+                log.info("Stop solicitat din Telegram.")
+                telegram.send("⛔ <b>Bot oprit din Telegram.</b>")
+                break
+
+            cycle += 1
+            cycle_ref[0] = cycle
+            # Verificare piata deschisa
+            try:
+                import requests as _req
+                from config import ALPACA_API_KEY as _KEY, ALPACA_SECRET_KEY as _SEC
+                _clock = _req.get("https://paper-api.alpaca.markets/v2/clock", headers={"APCA-API-KEY-ID": _KEY, "APCA-API-SECRET-KEY": _SEC}, timeout=5).json()
+                if not _clock.get("is_open", False):
+                    _next = _clock.get("next_open", "N/A")
+                    log.info(f"Piata inchisa. Deschide la: {_next} — astept 5 min...")
+                    await asyncio.sleep(300)
+                    continue
+            except Exception as _e:
+                log.warning(f"Nu pot verifica piata: {_e}")
+            await run_cycle(cycle)
+            log.info(f"Urmator ciclu in {CYCLE_MINUTES} minute...")
+            await asyncio.sleep(CYCLE_MINUTES * 60)
+
+        except KeyboardInterrupt:
+            log.info("Oprit manual (Ctrl+C)")
+            telegram.send("⛔ <b>NeuroTrade Bot v3.0 oprit.</b>")
+            break
+        except Exception as e:
+            log.error(f"Eroare critica ciclu #{cycle}: {e}", exc_info=True)
+            telegram.send(
+                f"⚠️ <b>Eroare critica ciclu #{cycle}:</b>\n"
+                f"{str(e)[:300]}\n\nRepornesc in 60s..."
+            )
+            await asyncio.sleep(60)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
